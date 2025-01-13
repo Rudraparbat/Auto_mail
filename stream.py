@@ -3,21 +3,21 @@ from langchain_core.prompts import PromptTemplate
 from scrap import *
 from model import *
 import re
-# Streamlit UI
+
 class Chain :
     def __init__(self):
         self.llm = model()
         
     def is_valid_url(self, url):
         url_pattern = re.compile(
-        r'^(https?://)?'  # Optional http:// or https://
-        r'(\w+(:\w+)?@)?'  # Optional username:password@
-        r'([A-Za-z0-9.-]+)'  # Domain name
-        r'(\.[A-Za-z]{2,})'  # Top-level domain
-        r'(:\d+)?'  # Optional port
-        r'(/[\w%.-]*)*'  # Optional path
-        r'(\?\S*)?'  # Optional query
-        r'(#\S*)?$'  # Optional fragment
+        r'^(https?://)?'  
+        r'(\w+(:\w+)?@)?'  
+        r'([A-Za-z0-9.-]+)'  
+        r'(\.[A-Za-z]{2,})'  
+        r'(:\d+)?'  
+        r'(/[\w%.-]*)*'  
+        r'(\?\S*)?'  
+        r'(#\S*)?$'
         )
         return bool(url_pattern.match(url))
 
